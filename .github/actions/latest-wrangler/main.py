@@ -1,9 +1,25 @@
 import os
 import sys
 import requests
-from distutils.util import strtobool
 from typing import Union
 from packaging.version import parse, Version
+
+# porting distutils.strtobool for compatibility with python 3.12+
+# https://github.com/pypa/distutils/blob/fb5c5704962cd3f40c69955437da9a88f4b28567/distutils/util.py#L340C1-L353C65
+def strtobool(val):
+    """Convert a string representation of truth to true (1) or false (0).
+
+    True values are 'y', 'yes', 't', 'true', 'on', and '1'; false values
+    are 'n', 'no', 'f', 'false', 'off', and '0'.  Raises ValueError if
+    'val' is anything else.
+    """
+    val = val.lower()
+    if val in ('y', 'yes', 't', 'true', 'on', '1'):
+        return 1
+    elif val in ('n', 'no', 'f', 'false', 'off', '0'):
+        return 0
+    else:
+        raise ValueError("invalid truth value {!r}".format(val))
 
 if __name__ == "__main__":
 
