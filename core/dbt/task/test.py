@@ -53,6 +53,7 @@ def strtobool(val):
     else:
         raise ValueError("invalid truth value {!r}".format(val))
 
+
 @dataclass
 class UnitTestDiff(dbtClassMixin):
     actual: List[Dict[str, Any]]

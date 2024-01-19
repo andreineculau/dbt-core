@@ -21,6 +21,7 @@ def strtobool(val):
     else:
         raise ValueError("invalid truth value {!r}".format(val))
 
+
 if __name__ == "__main__":
 
     # get inputs
