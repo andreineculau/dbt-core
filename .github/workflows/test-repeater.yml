@@ -31,6 +31,7 @@ on:
           - '3.9'
           - '3.10'
           - '3.11'
+          - '3.12'
       os:
         description: 'OS to run test in'
         type: choice
